@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sds:sds xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:sds='http://inter-trust.eu/schema/interpreter/sds'
+   xsi:schemaLocation='http://inter-trust.eu/schema/interpreter/sds SDS.xsd'>
+    <sds:deploy>
+        <sds:category id="http://inter-trust.eu/security/access-control">
+            <sds:securityConcept id="2" type="http://inter-trust.eu/security/authentication">
+                <sds:target id="http://inter-trust.eu/csa/vehicle/authnmodule"/>
+                <sds:functionality id="http://inter-trust.eu/security/authentication#certificate-authentication"/>
+                <sds:functionality id="http://inter-trust.eu/security/authentication#x509certificate"/>
+                <sds:configuration>
+                    <sds:securityParameters>
+                        <sds:parameter name="CA">C=ES, O=DIRECCIÓN GENERAL DE TRÁFICO, OU=ITS, CN=DGT.GOB.ES</sds:parameter>
+                    </sds:securityParameters>
+                </sds:configuration>
+            </sds:securityConcept>
+        </sds:category>
+        <sds:category id="http://inter-trust.eu/security/cryptography">
+            <sds:securityConcept id="3" type="http://inter-trust.eu/security/encryption">
+                <sds:target id="http://inter-trust.eu/csa/vehicle/cam-sender"/>
+                <sds:functionality id="http://inter-trust.eu/security/confidentiality#encryption"/>
+                <sds:functionality id="http://inter-trust.eu/security/secure-message-format#pkcs7"/>
+                <sds:configuration>
+                    <sds:securityParameters>
+                        <sds:parameter name="Algorithm">DSA</sds:parameter>
+                    </sds:securityParameters>
+                </sds:configuration>
+            </sds:securityConcept>
+        </sds:category>
+        <sds:category id="http://inter-trust.eu/security/monitoring">
+            <sds:securityConcept id="7" type="http://inter-trust.eu/security/timing">
+                <sds:target id="http://inter-trust.eu/csa/vehicle/cam-sender"/>
+                <sds:functionality id="http://inter-trust.eu/monitoring/timing#executiontime"/>
+            </sds:securityConcept>
+        </sds:category>
+    </sds:deploy>
+    <sds:undeploy>
+    </sds:undeploy>
+</sds:sds>
