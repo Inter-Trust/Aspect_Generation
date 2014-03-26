@@ -1,0 +1,16 @@
+evoting.core.client
+evoting.core.server
+intertrust
+intertrust.aspects.aspectj
+intertrust.aspects.aspectj.encryption
+intertrust.modules.ag
+intertrust.modules.ag.concrete.aspectj
+intertrust.modules.ag.generic
+intertrust.modules.ag.generic.SAKClasses
+intertrust.modules.ag.gui
+intertrust.modules.aw
+intertrust.modules.aw.concrete.aspectj
+intertrust.modules.aw.gui
+intertrust.modules.mt_simulator
+intertrust.modules.pi_simulator
+intertrust.utils
