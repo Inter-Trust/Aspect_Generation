@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sds:listAF xmlns:sds="http://inter-trust.eu/schema/interpreter/sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/interpreter/sds SAK_Schema.xsd ">
+
+<sds:aspect id="1" name="evoting.aspects.client.Authentication_UserPassword_EVotingClient">
+    <sds:advice id="1" name="authenticate">
+      <sds:functionality id="http://inter-trust.eu/security/authentication#userpass-authentication"/>
+    </sds:advice>
+  </sds:aspect>
+  <sds:aspect id="2" name="evoting.aspects.client.Authentication_X509certificate_EVotingClient">
+  	<sds:advice id="1" name="authenticate">
+  		<sds:functionality id="http://inter-trust.eu/security/authentication#certificate-authentication"/>
+  		<sds:functionality id="http://inter-trust.eu/security/authentication#x509certificate"/>
+  	</sds:advice></sds:aspect>
+  <sds:aspect id="3" name="evoting.aspects.client.Encryption_DSA_EVotingClient">
+  	<sds:advice id="1" name="encryption">
+  		<sds:functionality id="http://inter-trust.eu/security/confidentiality#encryption"/>
+  		<sds:functionality id="http://inter-trust.eu/security/secure-message-format#pkcs7"/>
+  	</sds:advice>
+  	<sds:advice id="2" name="decryption">
+  		<sds:functionality id="http://inter-trust.eu/security/confidentiality#decryption"/>
+  		<sds:functionality id="http://inter-trust.eu/security/secure-message-format#pkcs7"/>
+  	</sds:advice>
+  </sds:aspect>
+  <sds:aspect id="4" name="evoting.aspects.client.Encryption_RSA_EVotingClient">
+  	<sds:advice id="1" name="encryption">
+  		<sds:functionality id="http://inter-trust.eu/security/confidentiality#encryption"/>
+  		</sds:advice>
+  	<sds:advice id="2" name="decryption">
+  		<sds:functionality id="http://inter-trust.eu/security/confidentiality#encryption"/>
+  		</sds:advice>
+  		</sds:aspect>
+  <sds:aspect id="5" name="evoting.aspects.client.ElapsedTimeMonitoring_EVotingClient">
+  	<sds:advice id="1" name="time">
+  		<sds:functionality id="http://inter-trust.eu/monitoring/timing#executiontime"/>
+  	</sds:advice>
+	</sds:aspect>
+	  <sds:aspect id="6" name="evoting.aspects.client.Encryption_AES_Client">
+  	<sds:advice id="1" name="encryption">
+  		<sds:functionality id="http://inter-trust.eu/security/confidentiality#encryption"/>
+  		<sds:functionality id="http://inter-trust.eu/security/secure-message-format#pkcs5"/>
+  	</sds:advice>
+  	<sds:advice id="2" name="decryption">
+  		<sds:functionality id="http://inter-trust.eu/security/confidentiality#decryption"/>
+  		<sds:functionality id="http://inter-trust.eu/security/secure-message-format#pkcs5"/>
+  	</sds:advice>
+  </sds:aspect>
+</sds:listAF>

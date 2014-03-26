@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sds:sds  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:sds='http://inter-trust.eu/schema/interpreter/sds'
+   xsi:schemaLocation='http://inter-trust.eu/schema/interpreter/sds SDS.xsd'>
+    <sds:deploy>
+        <sds:category id="http://inter-trust.eu/security/rejection">
+            <sds:securityConcept id="10" type="http://inter-trust.eu/security/rejection">
+                <sds:target id="http://inter-trust.eu/csa/vehicle/cam-sender"/>
+                <sds:functionality id="http://inter-trust.eu/security/voterejection#reject"/>
+                <sds:configuration>
+                </sds:configuration>
+            </sds:securityConcept>
+        </sds:category>
+    </sds:deploy>
+    <sds:undeploy>
+    </sds:undeploy>
+</sds:sds>

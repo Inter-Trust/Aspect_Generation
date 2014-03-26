@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<adaptationPlan xmlns="http://inter-trust.eu/schema/interpreter/sds">
+    <deploy>
+        <aspect id="5" name="VoteRejection"/>
+    </deploy>
+    <undeploy/>
+</adaptationPlan>

@@ -1,0 +1,257 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>intertrust</groupId>
+  <artifactId>1stMilestone-demo3_opensource</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>demo3</name>
+  
+  	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Shared version number properties -->
+		<java.version>1.6</java.version>
+		<junit.version>4.11</junit.version>
+		
+	  
+	  	<aspectj.version>1.7.3</aspectj.version>
+	  	<xmltexteditor.version>0.0.3</xmltexteditor.version>
+	  	
+	  	<org.apache.commons.version>1.3.2</org.apache.commons.version>
+	</properties>
+	
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+		  <resource>
+		    <directory>src</directory>
+		    <excludes>
+		      <exclude>**/*.java</exclude>
+		      <exclude>**/*.aj</exclude>  
+		    </excludes>
+		  </resource>
+		</resources>
+    
+	    <plugins>
+	      <plugin>
+	      	<groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>3.1</version>
+	        <configuration>
+	          <source>${java.version}</source>
+	          <target>${java.version}</target>
+	        </configuration>
+	      </plugin>
+      
+	      <plugin>
+	        <groupId>org.codehaus.mojo</groupId>
+	        <artifactId>aspectj-maven-plugin</artifactId>
+	        <version>1.5</version>
+	        <configuration>
+	          <ajdtBuildDefFile>modulesBuild.ajproperties</ajdtBuildDefFile>
+	        </configuration>
+	        <executions>
+	          <execution>
+	            <goals>
+	              <goal>compile</goal>
+	            </goals>
+	            <configuration>
+        			<complianceLevel>${java.version}</complianceLevel>
+   				</configuration>
+	          </execution>
+	        </executions>
+	      </plugin>
+  
+		  <plugin>
+		  	  <!-- Using this plugin the .jar file includes dependencies -->
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-shade-plugin</artifactId>
+		   	  <version>1.7</version>
+			  <executions>
+			   
+			   <execution>
+			      <id>AGAWModules</id>
+			      <phase>package</phase>
+			      <goals>
+			        <goal>shade</goal>
+			      </goals>
+			      <configuration>
+			        <finalName>AGAWModules</finalName>
+			        <shadedArtifactAttached>true</shadedArtifactAttached>
+			        <shadedClassifierName>jar-with-dependencies</shadedClassifierName>
+			        <excludes>
+						 <exclude>evoting/**</exclude> 
+					</excludes>
+			      </configuration>
+			    </execution>
+			     
+			    
+			    <!--  EVotingServer.jar executable for demo3 -->
+			    <execution>
+			      <id>server</id>
+			      <phase>package</phase>
+			      <goals>
+			        <goal>shade</goal>
+			      </goals>
+			      <configuration>
+			        <finalName>EVotingServer</finalName>
+			        <shadedArtifactAttached>true</shadedArtifactAttached>
+			        <shadedClassifierName>jar-with-dependencies</shadedClassifierName>
+			        <transformers>
+			          <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+			            <mainClass>evoting.core.server.EVotingServer</mainClass>
+			          </transformer>
+			          <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+			            <resource>META-INF/spring.handlers</resource>
+			          </transformer>
+			          <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+			            <resource>META-INF/spring.schemas</resource>
+			          </transformer>
+			          <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+			            <resource>META-INF/spring.tooling</resource>
+			          </transformer>
+			        </transformers>
+			        <filters>
+		                <filter>
+		                  <artifact>intertrust:1stMilestone-demo3</artifact>
+		                  <excludes>
+		                    <exclude>evoting/aspects/client/**</exclude>
+		                    <exclude>evoting/core/client/**</exclude>
+		                    <exclude>intertrust/Intertrust_Initialization_EVotingClientFiles.class</exclude>
+		                  </excludes>
+		                </filter>
+		            </filters>
+			      </configuration>
+			    </execution>
+			    
+			    <!--  EVotingClient.jar executable for demo3 -->
+			     <execution>
+			      <id>client</id>
+			      <phase>package</phase>
+			      <goals>
+			        <goal>shade</goal>
+			      </goals>
+			      <configuration>
+			        <finalName>EVotingClient</finalName>
+			        <shadedArtifactAttached>true</shadedArtifactAttached>
+			        <shadedClassifierName>jar-with-dependencies</shadedClassifierName>
+			        <transformers>
+			          <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+			            <mainClass>evoting.core.client.EVotingClient</mainClass>
+			          </transformer>
+			          <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+			            <resource>META-INF/spring.handlers</resource>
+			          </transformer>
+			          <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+			            <resource>META-INF/spring.schemas</resource>
+			          </transformer>
+			          <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+			            <resource>META-INF/spring.tooling</resource>
+			          </transformer>
+			        </transformers>
+			        <filters>
+		                <filter>
+		                  <artifact>intertrust:1stMilestone-demo3</artifact>
+		                  <excludes>
+		                    <exclude>evoting/aspects/server/**</exclude>
+		                    <exclude>evoting/core/server/**</exclude>
+		                    <exclude>intertrust/Intertrust_Initialization_EVotingServerFiles.aj</exclude>
+		                  </excludes>
+		                </filter>
+		            </filters>
+			      </configuration>
+			    </execution>
+			  </executions>
+		  </plugin>
+
+	  <plugin>
+		  	<!-- Using this plugin the .jar file does not include dependencies -->
+		    <artifactId>maven-jar-plugin</artifactId>
+		    <version>2.3.1</version>
+		    <executions>
+		     <!--  AGAWModules for integration -->
+		     <!-- 
+		     <execution>
+		        <id>AGAWModules</id>
+		        <goals><goal>jar</goal></goals>
+		        <phase>package</phase>
+		        <configuration>
+		          <finalName>AGAWModules</finalName>
+		          <excludes>
+		            <exclude>evoting/**</exclude>
+		            <exclude>intertrust/aspects/aspectj/*.aj</exclude>
+		            <exclude>intertrust/aspects/aspectj/encryption/**</exclude>
+		            <exclude>intertrust/aspects/springaop/**</exclude>
+		          </excludes>
+		        </configuration>
+		      </execution>
+		       -->
+		      <!--  
+		      <execution>
+		        <id>default-jar</id>
+		        <phase>package</phase>
+		        <goals>
+		          <goal>jar</goal>
+		        </goals>
+		        <configuration>
+		          <excludes>
+		            <exclude>evoting/**</exclude>
+		          </excludes>
+		        </configuration>
+		      </execution>
+		      -->
+		    </executions>
+		  </plugin>
+		  
+	    </plugins>
+	</build>
+  
+	<!-- remote repositories -->
+	<repositories>
+	  <repository>
+	    <id>sonatype-forge</id>
+	  	<url>https://repository.sonatype.org/content/groups/forge/</url>
+	  </repository>
+	</repositories>
+ 
+ 	<!--  Dependencies --> 
+	<dependencies>
+	 	 
+	 	<!-- JUnit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+	
+		<!-- AspectJ -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjrt</artifactId>
+		    <version>${aspectj.version}</version>
+		</dependency>
+        
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		         
+
+		<!-- 
+			xml-text-editor
+		-->
+		<dependency>
+		  <groupId>net.boplicity</groupId>
+		  <artifactId>xml-text-editor</artifactId>
+		  <version>${xmltexteditor.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${org.apache.commons.version}</version>
+		</dependency>
+		
+	</dependencies>
+  
+</project>

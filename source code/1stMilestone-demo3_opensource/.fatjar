@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Fri Sep 27 13:50:27 CEST 2013
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=EVotingServer.jar
+manifest.mergeall=true
+manifest.mainclass=evoting.core.server.EVotingServer
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<po|1stMilestone-demo3>~evoting/~aspects/~client/;<po|1stMilestone-demo3>~evoting/~core/~client/
+includes=

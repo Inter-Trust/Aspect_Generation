@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mappingSCA xmlns="http://inter-trust.eu/schema/interpreter/sds">
+    <securityConcept id="2">
+        <candidateAspect>
+            <aspect id="2" name="evoting.aspects.client.Authentication_X509certificate_EVotingClient"/>
+        </candidateAspect>
+    </securityConcept>
+    <securityConcept id="3">
+        <candidateAspect>
+            <aspect id="3" name="evoting.aspects.client.Encryption_DSA_EVotingClient"/>
+        </candidateAspect>
+    </securityConcept>
+    <securityConcept id="7">
+        <candidateAspect>
+            <aspect id="5" name="evoting.aspects.client.ElapsedTimeMonitorization_EVotingClient"/>
+        </candidateAspect>
+    </securityConcept>
+</mappingSCA>

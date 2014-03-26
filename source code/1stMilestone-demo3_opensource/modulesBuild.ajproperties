@@ -1,0 +1,10 @@
+src.includes = src/
+src.excludes = src/evoting/,\
+               src/intertrust/aspects/aspectj/Authentication_UserPassword.aj,\
+               src/intertrust/aspects/aspectj/ElapsedTimeMonitoring.aj,\
+               src/intertrust/aspects/aspectj/Authentication_X509certificate.aj,\
+               src/intertrust/aspects/aspectj/Encryption_DSA.aj,\
+               src/intertrust/aspects/aspectj/Encryption_RSA.aj,\
+               src/intertrust/aspects/aspectj/VoteRejection.aj,\
+               src/intertrust/aspects/aspectj/encryptionAES/,\
+               src/intertrust/aspects/springaop/

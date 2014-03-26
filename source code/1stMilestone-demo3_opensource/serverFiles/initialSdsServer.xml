@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sds:sds xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:sds='http://inter-trust.eu/schema/interpreter/sds'
+   xsi:schemaLocation='http://inter-trust.eu/schema/interpreter/sds SDS.xsd'>
+    <sds:deploy>
+    </sds:deploy>
+    <sds:undeploy>
+    </sds:undeploy>
+</sds:sds>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema targetNamespace="http://inter-trust.eu/schema/interpreter/sds" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sds="http://inter-trust.eu/schema/interpreter/sds">
+    <xsd:complexType name="sds">
+        <xsd:annotation>
+            <xsd:documentation>Security Deployment Specification</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="deploy" minOccurs="0" />
+            <xsd:element name="undeploy" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="category">
+        <xsd:sequence>
+            <xsd:element name="securityConcept" type="sds:securityConcept" maxOccurs="unbounded" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:anyURI" use="required" />
+    </xsd:complexType>
+    <xsd:complexType name="securityConcept">
+        <xsd:sequence>
+        	<xsd:element name="target" type="sds:target" minOccurs="0" />
+        	<xsd:element name="functionality" type="sds:functionality"
+        		maxOccurs="unbounded" minOccurs="0" />
+        	<xsd:element name="configuration" type="sds:configuration"
+        		minOccurs="0" />
+        	<xsd:element name="candidateAspect"
+        		type="sds:candidateAspect" minOccurs="0" maxOccurs="unbounded">
+        	</xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" use="required" />
+        <xsd:attribute name="type" type="xsd:anyURI" />
+    </xsd:complexType>
+    <xsd:complexType name="target">
+        <xsd:attribute name="id" type="xsd:anyURI" use="required" />
+    </xsd:complexType>
+    <xsd:complexType name="functionality">
+        <xsd:attribute name="id" type="xsd:anyURI" use="required" />
+    </xsd:complexType>
+    <xsd:complexType name="configuration">
+        <xsd:choice>
+            <xsd:element name="securityParameters" type="sds:securityParameters" />
+            <xsd:element name="securityDescription" type="xsd:anyType" />
+        </xsd:choice>
+    </xsd:complexType>
+    <xsd:complexType name="securityParameters">
+        <xsd:sequence>
+            <xsd:element name="parameter" type="sds:securityParameter" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="securityParameter">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="deploy">
+        <xsd:sequence>
+        	<xsd:element name="category" type="sds:category"
+        		minOccurs="0" maxOccurs="unbounded" />
+        	<xsd:element name="aspect" type="sds:aspect" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="undeploy">
+        <xsd:sequence>
+        	<xsd:element name="undeploySecurityConcept" minOccurs="0" maxOccurs="unbounded">
+        		<xsd:complexType>
+        			<xsd:attribute name="id" type="xsd:string" />
+        		</xsd:complexType>
+        	</xsd:element>
+        	<xsd:element name="aspect" type="sds:aspect" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="sds" type="sds:sds" />
+
+    <xsd:element name="listAF" type="sds:listAF"></xsd:element>
+    
+    <xsd:complexType name="listAF">
+    	<xsd:sequence>
+    		<xsd:element name="aspect" type="sds:aspect" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="aspect">
+    	<xsd:sequence>
+    		<xsd:element name="advice" type="sds:advice" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="advice">
+    	<xsd:sequence>
+    		<xsd:element name="functionality" type="sds:functionality"
+    			minOccurs="1" maxOccurs="unbounded">
+    		</xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:element name="adaptationPlan" type="sds:adaptationPlan"></xsd:element>
+    
+    <xsd:complexType name="adaptationPlan">
+    	<xsd:sequence>
+    		<xsd:element name="deploy" type="sds:deploy"></xsd:element>
+    		<xsd:element name="undeploy" type="sds:undeploy"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="mappingSCA" type="sds:mappingSCA"></xsd:element>
+    
+    <xsd:complexType name="mappingSCA">
+    	<xsd:sequence>
+    		<xsd:element name="securityConcept"
+    			type="sds:securityConcept" minOccurs="0" maxOccurs="unbounded">
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="candidateAspect">
+    	<xsd:sequence>
+    		<xsd:element name="aspect" type="sds:aspect" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

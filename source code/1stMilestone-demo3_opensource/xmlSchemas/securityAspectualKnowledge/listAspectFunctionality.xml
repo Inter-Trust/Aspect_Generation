@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sds:listAF xmlns:sds="http://inter-trust.eu/schema/interpreter/sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/interpreter/sds SAK_Schema.xsd ">
+
+<sds:aspect id="1" name="Authentication_UserPassword">
+    <sds:advice id="1" name="authenticate">
+      <sds:functionality id="http://inter-trust.eu/security/authentication#userpass-authentication"/>
+    </sds:advice>
+  </sds:aspect>
+  <sds:aspect id="2" name="Authentication_X509certificate">
+  	<sds:advice id="1" name="authenticate">
+  		<sds:functionality id="http://inter-trust.eu/security/authentication#certificate-authentication"/>
+  		<sds:functionality id="http://inter-trust.eu/security/authentication#x509certificate"/>
+  	</sds:advice></sds:aspect>
+  <sds:aspect id="3" name="Encryption_DSA">
+  	<sds:advice id="1" name="encryption">
+  		<sds:functionality id="http://inter-trust.eu/security/confidentiality#encryption"/>
+  		<sds:functionality id="http://inter-trust.eu/security/secure-message-format#pkcs7"/>
+  	</sds:advice>
+  	<sds:advice id="2" name="decryption">
+  		<sds:functionality id="http://inter-trust.eu/security/confidentiality#decryption"/>
+  		<sds:functionality id="http://inter-trust.eu/security/secure-message-format#pkcs7"/>
+  	</sds:advice>
+  </sds:aspect>
+  <sds:aspect id="4" name="Encryption_RSA">
+  	<sds:advice id="1" name="encryption">
+  		<sds:functionality id="http://inter-trust.eu/security/confidentiality#encryption"/>
+  		</sds:advice>
+  	<sds:advice id="2" name="decryption">
+  		<sds:functionality id="http://inter-trust.eu/security/confidentiality#encryption"/>
+  		</sds:advice>
+  		</sds:aspect>
+  <sds:aspect id="5" name="ElapsedTimeMonitorization">
+  	<sds:advice id="1" name="time">
+  		<sds:functionality id="http://inter-trust.eu/monitorization/timing#executiontime"/>
+  	</sds:advice>
+	</sds:aspect>
+</sds:listAF>
