@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+    
+    
+
+
+
+
+
+    <xsd:complexType name="Element">
+    	<xsd:sequence>
+    		<xsd:element name="Alarms" type="Alarms"></xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="Type" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="Id" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="Alarm">
+    	<xsd:sequence>
+    		<xsd:element name="Params" type="Params"></xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="Type" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="Id" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="State" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="Date" type="xsd:dateTime"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="Params">
+    	<xsd:sequence>
+    		<xsd:element name="Param" type="Param" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Param">
+    	<xsd:attribute name="Id" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="Value" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="Elements">
+    	<xsd:sequence>
+    		<xsd:element name="Element" type="Element" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Alarms">
+    	<xsd:sequence>
+    		<xsd:element name="Alarm" type="Alarm" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="Elements" type="Elements"></xsd:element>
+
+</xsd:schema>

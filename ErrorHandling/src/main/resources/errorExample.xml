@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ErrorHandling-schema.xsd">
+  <Element Id="" Type="">
+    <Alarms>
+      <Alarm Date="2001-12-31T12:00:00" Id="" State="" Type="">
+        <Params>
+          <Param Id="" Value=""/>
+        </Params>
+      </Alarm>
+    </Alarms>
+  </Element>
+</Elements>

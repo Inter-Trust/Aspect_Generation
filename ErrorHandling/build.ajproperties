@@ -1,0 +1,4 @@
+src.includes = src/main/java/,\
+               src/test/java/,\
+               src/main/resources/
+src.inclusionpatterns = src/main/resources/**/*.java
