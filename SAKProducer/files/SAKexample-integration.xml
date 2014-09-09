@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ak:aspectualKnowledge xmlns:ak="http://inter-trust.eu/schema/AspectualKnowledge/ak" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/AspectualKnowledge/ak AspectualKnowledge-schema.xsd ">
+  <ak:pointcuts>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="authenticationPoints"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="Vote" name="Vote"/>
+  </ak:pointcuts>
+  <ak:advices>
+    <ak:adviceCategory id="Authentication">
+      <ak:advice id="certificate">
+        <ak:functionalities>
+          <ak:functionality id="Authentication#certificate"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="userPass">
+        <ak:functionalities>
+          <ak:functionality id="Authentication#userPass"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+    <ak:adviceCategory id="Rejection">
+      <ak:advice id="VoteRejectionAdvice" classname="uma.caosd.evoting.server.aspects.VoteRejection" 
+      					 filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="Rejection#vote-rejection"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+  </ak:advices>
+  <ak:advisors>
+    <ak:advisorCategory id="Authentication">
+      <ak:advisor id="Authentication.certificate" name="AuthCertificate" advice-ref="certificate" pointcut-ref="authenticationPoints" type="AspectJ"/>
+      <ak:advisor id="Authentication.userPass" name="AuthUserPass" advice-ref="userPass" pointcut-ref="authenticationPoints" type="AspectJ"/>
+    </ak:advisorCategory>
+    <ak:advisorCategory id="Rejection">
+      <ak:advisor id="VoteRejection" name="VoteRejection" advice-ref="VoteRejectionAdvice" pointcut-ref="Vote" type="SpringAOP"/>
+    </ak:advisorCategory>
+  </ak:advisors>
+</ak:aspectualKnowledge>

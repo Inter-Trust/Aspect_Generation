@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ak:aspectualKnowledge xmlns:ak="http://inter-trust.eu/schema/AspectualKnowledge/ak" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/AspectualKnowledge/ak AspectualKnowledge-schema.xsd ">
+  <ak:pointcuts>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="authenticationPoints"/>
+  </ak:pointcuts>
+  <ak:advices>
+    <ak:adviceCategory id="Authentication">
+      <ak:advice id="certificate">
+        <ak:functionalities>
+          <ak:functionality id="Authentication#certificate"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="userPass">
+        <ak:functionalities>
+          <ak:functionality id="Authentication#userPass"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="biometrics">
+        <ak:functionalities>
+          <ak:functionality id="Authentication#biometrics"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+  </ak:advices>
+  <ak:advisors>
+    <ak:advisorCategory id="Authentication">
+      <ak:advisor advice-ref="certificate" id="Authentication.certificate" pointcut-ref="authenticationPoints" type="AspectJ"/>
+      <ak:advisor advice-ref="userPass" id="Authentication.userPass" pointcut-ref="authenticationPoints" type="AspectJ"/>
+      <ak:advisor advice-ref="biometrics" id="Authentication.biometrics" pointcut-ref="authenticationPoints" type="AspectJ"/>
+    </ak:advisorCategory>
+  </ak:advisors>
+</ak:aspectualKnowledge>
