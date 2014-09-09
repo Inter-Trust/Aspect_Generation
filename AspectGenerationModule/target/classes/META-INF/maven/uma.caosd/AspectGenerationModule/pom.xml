@@ -1,0 +1,193 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>uma.caosd</groupId>
+  <artifactId>AspectGenerationModule</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>AspectGenerationModule</name>
+  <url>http://maven.apache.org</url>
+  
+  <licenses>
+    <license>
+       <name>GPLv2</name>
+       <url>http://www.gnu.org/licenses/gpl-2.0.html</url>
+       <distribution>repo</distribution>
+       <comments>An open source license</comments>
+    </license>
+	</licenses>
+    
+	<organization>
+	  <name>UMA</name>
+	  <url>http://caosd.lcc.uma.es/</url>
+	</organization>
+   
+  <developers>
+    <developer>
+      <id>horcas</id>
+      <name>José Miguel Horcas</name>
+      <email>horcas@lcc.uma.es</email>
+      <url>http://caosd.lcc.uma.es/</url>
+      <organization>UMA</organization>
+      <organizationUrl>http://caosd.lcc.uma.es/</organizationUrl>
+      <roles>
+          <role>developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.6</java.version>
+    <junit.version>4.11</junit.version>
+    <xmltexteditor.version>0.0.3</xmltexteditor.version>
+    <org.apache.commons.version>1.3.2</org.apache.commons.version>
+    <amqp.version>0.0.1-SNAPSHOT</amqp.version>
+    <ak.version>0.0.1-SNAPSHOT</ak.version>
+    <sds.version>0.0.1-SNAPSHOT</sds.version>
+  </properties>
+
+	<!-- remote repositories -->
+	<repositories>
+		<!-- Repository for xml-text-editor -->
+		<repository>
+	    <id>sonatype-forge</id>
+	    <url>https://repository.sonatype.org/content/groups/forge/</url>
+	  </repository>
+	</repositories>
+
+  <dependencies>
+    <!-- JUnit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+		<!-- xml-text-editor -->
+		<dependency>
+		  <groupId>net.boplicity</groupId>
+		  <artifactId>xml-text-editor</artifactId>
+		  <version>${xmltexteditor.version}</version>
+		</dependency>
+				 
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${org.apache.commons.version}</version>
+		</dependency>
+		
+    <!--  Local dependencies -->
+    <!-- Aspectual Knowledge -->  
+    <dependency>
+			<groupId>uma.caosd</groupId>
+			<artifactId>AspectualKnowledge</artifactId>
+			<version>${ak.version}</version>
+		</dependency>
+	
+		<!-- Security Deployment Specification -->  
+    <dependency>
+			<groupId>uma.caosd</groupId>
+			<artifactId>SecurityDeploymentSpecification</artifactId>
+			<version>${sds.version}</version>
+		</dependency>
+		
+		<!-- AMQP -->  
+    <dependency>
+			<groupId>uma.caosd</groupId>
+			<artifactId>AMQP-ActiveMQ</artifactId>
+			<version>${amqp.version}</version>
+		</dependency>
+		
+  </dependencies>
+  
+  	<!-- Build Settings -->
+  <build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+  
+  	<!-- Maven's plugins -->
+    <!--  <pluginManagement>  -->
+			<plugins>
+		  	
+		  	<!-- Maven compiler's plugin -->
+		  	<plugin>
+		    	<groupId>org.apache.maven.plugins</groupId>
+		      <artifactId>maven-compiler-plugin</artifactId>
+		      <version>3.1</version>
+		      <configuration>
+		        <source>${java.version}</source>
+		        <target>${java.version}</target>
+		      </configuration>
+		    </plugin>
+		    
+	      <!--  Run mvn assembly:assembly -->
+	      <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <configuration>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            <archive>
+				       <addMavenDescriptor>false</addMavenDescriptor>
+				       <manifest>
+								 <mainClass>uma.caosd.AspectGenerationModule.main.Main</mainClass>
+								</manifest>
+				     </archive>
+          </configuration>
+        </plugin>
+
+				<!-- Maven jar plugin -->
+				<plugin>
+				   <artifactId>maven-jar-plugin</artifactId>
+				   <version>2.4</version>
+				   <configuration>
+				     <archive>
+				       <addMavenDescriptor>false</addMavenDescriptor>
+				       <manifest>
+								 <mainClass>uma.caosd.AspectGenerationModule.main.Main</mainClass>
+								</manifest>
+				     </archive>
+				   </configuration>
+				 </plugin>
+            
+        <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.3</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <artifactSet>
+                <excludes>
+                  <exclude>junit:junit</exclude>
+                  <exclude>org.aspectj:*</exclude>
+                  <exclude>org.springframework:*</exclude>
+                  <exclude>cglib:cglib</exclude>
+                  <exclude>asm:asm</exclude>
+                  <exclude>aopalliance:aopalliance</exclude>
+                  <exclude>org.jdom:jdom2</exclude>
+                  <exclude>org.apache.activemq:activemq-all</exclude>
+                  <exclude>org.apache.directory.studio:org.apache.commons.codec</exclude>
+                  <exclude>commons-codec:commons-codec</exclude>
+                  <exclude>commons-logging:commons-logging</exclude>
+                  <exclude>net.boplicity:xml-text-editor</exclude>
+                  <exclude>org.apache.commons:commons-io</exclude>
+                  <exclude>commons-io:commons-io</exclude>
+                </excludes>
+              </artifactSet>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+      
+		  </plugins>
+	</build>
+</project>
