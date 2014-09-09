@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://inter-trust.eu/schema/AspectualKnowledge/ak" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ak="http://inter-trust.eu/schema/AspectualKnowledge/ak">
+
+
+
+    <xsd:complexType name="Pointcut">
+    	<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="expression" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="Advice">
+    	<xsd:sequence>
+    		<xsd:element name="functionalities" type="ak:Functionalities" maxOccurs="1" minOccurs="1">
+    		</xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="classname" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="filepath" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="Advisor">
+    	<xsd:sequence>
+    		<xsd:element name="configuration"
+    			type="ak:AdvisorConfiguration" maxOccurs="1" minOccurs="0">
+    		</xsd:element>
+    		<xsd:element name="pointcut" type="ak:Pointcut"
+    			maxOccurs="1" minOccurs="0">
+    		</xsd:element>
+    		<xsd:element name="advice" type="ak:Advice" maxOccurs="1"
+    			minOccurs="0">
+    		</xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="advice-ref" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="pointcut-ref" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="type" type="ak:AOPType"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="AspectualKnowledge">
+    	<xsd:sequence>
+    		<xsd:element name="pointcuts" type="ak:Pointcuts" maxOccurs="1" minOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="advices" type="ak:Advices" maxOccurs="1" minOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="advisors" type="ak:Advisors" maxOccurs="1" minOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AdviceCategory">
+    	<xsd:sequence>
+    		<xsd:element name="advice" type="ak:Advice" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:complexType name="AdvisorCategory">
+    	<xsd:sequence>
+    		<xsd:element name="advisor" type="ak:Advisor" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="Functionality">
+    	<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="Pointcuts">
+    	<xsd:sequence>
+    		<xsd:element name="pointcut" type="ak:Pointcut" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Advices">
+    	<xsd:sequence>
+    		<xsd:element name="adviceCategory" type="ak:AdviceCategory" maxOccurs="unbounded" minOccurs="0">
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Advisors">
+    	<xsd:sequence>
+    		<xsd:element name="advisorCategory" type="ak:AdvisorCategory" maxOccurs="unbounded" minOccurs="0">
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Functionalities">
+    	<xsd:sequence>
+    		<xsd:element name="functionality" type="ak:Functionality" maxOccurs="unbounded" minOccurs="1">
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="AOPType">
+    	<xsd:restriction base="xsd:string">
+    		<xsd:enumeration value="AspectJ"></xsd:enumeration>
+    		<xsd:enumeration value="SpringAOP"></xsd:enumeration>
+    	</xsd:restriction>
+    </xsd:simpleType>
+
+
+
+    <xsd:complexType name="Configuration">
+    	<xsd:sequence>
+            <xsd:element name="instance" type="ak:Instance" maxOccurs="1" minOccurs="0"></xsd:element>
+            <xsd:element name="advisor" type="ak:Advisor"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="configuration" type="ak:Configuration"></xsd:element>
+
+    <xsd:element name="adaptationPlan" type="ak:AdaptationPlan"></xsd:element>
+    
+    <xsd:complexType name="AdaptationPlan">
+    	<xsd:sequence>
+            <xsd:element name="instance" type="ak:Instance" maxOccurs="1" minOccurs="1"></xsd:element>
+            <xsd:element name="ADD" type="ak:ADD" maxOccurs="1"
+    			minOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="REMOVE" type="ak:REMOVE" maxOccurs="1"
+    			minOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="CONFIGURE" type="ak:CONFIGURE"
+    			maxOccurs="1" minOccurs="1">
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ADD">
+    	<xsd:sequence>
+    		<xsd:element name="advisor" type="ak:Advisor" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="REMOVE">
+    	<xsd:sequence>
+    		<xsd:element name="advisor" type="ak:Advisor" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="CONFIGURE">
+    	<xsd:sequence>
+    		<xsd:element name="advisor" type="ak:Advisor" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Instance">
+    	<xsd:attribute name="id" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:element name="aspectualKnowledge"
+    	type="ak:AspectualKnowledge">
+    </xsd:element>
+
+    <xsd:complexType name="AdvisorConfiguration">
+    	<xsd:sequence>
+    		<xsd:element name="description" type="xsd:string"></xsd:element>
+    		<xsd:element name="configurationParameters"
+    			type="ak:ConfigurationParameters">
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ConfigurationParameters">
+    	<xsd:sequence>
+    		<xsd:element name="parameter" type="ak:Parameter" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Parameter">
+    	<xsd:sequence>
+    		<xsd:element name="name" type="xsd:string"></xsd:element>
+    		<xsd:element name="value" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
