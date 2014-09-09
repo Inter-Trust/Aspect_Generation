@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sds:sds xmlns:sds="http://inter-trust.eu/schema/interpreter/sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/interpreter/sds SDS.xsd ">
+  <sds:deploy>
+  </sds:deploy>
+  <sds:undeploy>
+  	<sds:undeploySecurityConcept id="1"/>
+  </sds:undeploy>
+</sds:sds>

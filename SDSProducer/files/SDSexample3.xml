@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sds:sds xmlns:sds="http://inter-trust.eu/schema/interpreter/sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/interpreter/sds SDS.xsd ">
+  <sds:deploy>
+    <sds:category id="Authentication">
+      <sds:securityConcept id="2" type="Authentication">
+        <sds:target id="authenticationPoints"/>
+        <sds:functionality id="Authentication#userPass"/>
+      </sds:securityConcept>
+    </sds:category>
+  </sds:deploy>
+  <sds:undeploy>
+  </sds:undeploy>
+  <sds:instance id="user001"/>
+</sds:sds>

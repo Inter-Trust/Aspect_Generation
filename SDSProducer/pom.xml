@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>uma.caosd</groupId>
+  <artifactId>SDSProducer</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>SDSProducer</name>
+  <url>http://maven.apache.org</url>
+
+	<licenses>
+    <license>
+       <name>GPLv2</name>
+       <url>http://www.gnu.org/licenses/gpl-2.0.html</url>
+       <distribution>repo</distribution>
+       <comments>An open source license</comments>
+    </license>
+	</licenses>
+    
+	<organization>
+	  <name>UMA</name>
+	  <url>http://caosd.lcc.uma.es/</url>
+	</organization>
+   
+  <developers>
+    <developer>
+      <id>horcas</id>
+      <name>José Miguel Horcas</name>
+      <email>horcas@lcc.uma.es</email>
+      <url>http://caosd.lcc.uma.es/</url>
+      <organization>UMA</organization>
+      <organizationUrl>http://caosd.lcc.uma.es/</organizationUrl>
+      <roles>
+          <role>developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>4.11</junit.version>
+    <java.version>1.6</java.version>
+	  <amqp.version>0.0.1-SNAPSHOT</amqp.version>
+  </properties>
+
+	<dependencies>
+    <!-- JUnit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+		<!-- AMQP -->  
+    <dependency>
+			<groupId>uma.caosd</groupId>
+			<artifactId>AMQP-ActiveMQ</artifactId>
+			<version>${amqp.version}</version>
+		</dependency>
+	
+  </dependencies>
+  
+ <!-- Build Settings -->
+  <build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+  
+  	<!-- Maven's plugins -->
+			<plugins>
+		  	
+		  	<!-- Maven compiler's plugin -->
+		  	<plugin>
+		    	<groupId>org.apache.maven.plugins</groupId>
+		      <artifactId>maven-compiler-plugin</artifactId>
+		      <version>3.1</version>
+		      <configuration>
+		        <source>${java.version}</source>
+		        <target>${java.version}</target>
+		      </configuration>
+		    </plugin>
+	      
+	      <!--  Run mvn assembly:assembly -->
+	      <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <configuration>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            <archive>
+				       <addMavenDescriptor>false</addMavenDescriptor>
+				       <manifest>
+								 <mainClass>uma.caosd.AspectGenerationModule.producer.main.MainProducer</mainClass>
+								</manifest>
+				     </archive>
+          </configuration>
+        </plugin>
+
+				<!-- Maven jar plugin -->
+				<plugin>
+				   <artifactId>maven-jar-plugin</artifactId>
+				   <configuration>
+				     <archive>
+				       <addMavenDescriptor>false</addMavenDescriptor>
+				       <manifest>
+								 <mainClass>uma.caosd.AspectGenerationModule.producer.main.MainProducer</mainClass>
+								</manifest>
+				     </archive>
+				   </configuration>
+				 </plugin>
+            
+		  </plugins>
+	</build>
+
+</project>
