@@ -1,5 +1,6 @@
 package uma.caosd.AspectGenerationModule.analysis;
 
+import java.io.File;
 import java.util.Set;
 
 import uma.caosd.AspectGenerationModule.SAKAnalysis;
@@ -9,8 +10,10 @@ import uma.caosd.AspectGenerationModule.analysis.selectionAlgorithm.AspectsSelec
 import uma.caosd.AspectGenerationModule.analysis.selectionAlgorithm.SelectionAlgorithm1;
 import uma.caosd.AspectGenerationModule.exceptions.AspectsSelectionException;
 import uma.caosd.AspectGenerationModule.exceptions.MappingException;
+import uma.caosd.AspectGenerationModule.utils.XMLViewer;
 import uma.caosd.AspectualKnowledge.Configuration;
 import uma.caosd.SecurityDeploymentSpecification.Sds;
+import uma.caosd.amqp.utils.XMLUtils;
 
 /**
  * This component analyses the notified changes and the security aspectual knowledge
@@ -50,9 +53,9 @@ public class Analysis {
 		securityConfigurationToBeUndeployed = configGeneration.generateSecurityConfigurationToBeUndeployed();
 		
 		/** PRUEBAS **/
-		/*File f = XMLFile.writeTemp("securityConfigurationToBeDeployed", securityConfigurationToBeDeployed, Configuration.class);
-		new XMLViewer(f);
-		
+		/*File f = XMLUtils.writeTemp("securityConfigurationToBeDeployed", securityConfigurationToBeDeployed, Configuration.class);
+		new XMLViewer(f);*/
+		/*
 		File f2 = XMLFile.writeTemp("securityConfigurationToBeUndeployed", securityConfigurationToBeUndeployed, Configuration.class);
 		new XMLViewer(f2);*/
 	}

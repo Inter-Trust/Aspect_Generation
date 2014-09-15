@@ -8,6 +8,7 @@ import java.util.Set;
 import uma.caosd.AspectGenerationModule.SAKAnalysis;
 import uma.caosd.AspectGenerationModule.analysis.SDSAnalysis;
 import uma.caosd.AspectGenerationModule.exceptions.AnalysisException;
+import uma.caosd.AspectGenerationModule.exceptions.AspectualKnowledgeException;
 import uma.caosd.AspectGenerationModule.exceptions.MappingException;
 import uma.caosd.AspectualKnowledge.Advice;
 import uma.caosd.AspectualKnowledge.Advisor;
@@ -16,6 +17,9 @@ import uma.caosd.AspectualKnowledge.ConfigurationParameters;
 import uma.caosd.AspectualKnowledge.Parameter;
 import uma.caosd.SecurityDeploymentSpecification.SecurityParameter;
 import uma.caosd.SecurityDeploymentSpecification.SecurityParameters;
+import uma.caosd.errorHandling.DeploymentStatusSingleton;
+import uma.caosd.errors.Module;
+import uma.caosd.errors.Type;
 
 /**
  * Mapping between the security concepts of a Security Deployment Specification (SDS) and
@@ -52,14 +56,18 @@ public class MappingHandler1to1 implements MappingSecurityConceptsAspects {
 				mapping.put(scID, advisorsForSC);
 			}	
 		} catch (AnalysisException e) {
-			throw new MappingException("Error geenrating mapping: " + e.getMessage());
+			String desc = "Error generating mapping: " + e.getMessage();
+			DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.MAPPING);
+			throw new MappingException(desc);
 		}
 		
 	}
 
 	public Set<Advisor> getAdvisors(String securityConceptID) throws MappingException {
 		if (!mapping.containsKey(securityConceptID)) {
-			throw new MappingException("There is not security concept with ID '" + securityConceptID + "'.");
+			String desc = "There is not security concept with ID '" + securityConceptID + "'.";
+			DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.MAPPING);
+			throw new MappingException(desc);
 		}
 		return mapping.get(securityConceptID);
 	}

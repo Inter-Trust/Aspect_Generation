@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Errors-schema" xmlns:tns="http://www.example.org/Errors-schema" elementFormDefault="qualified">
+
+    <element name="DeploymentStatus" type="tns:DeploymentStatus"></element>
+
+    <complexType name="Errors">
+    	<sequence>
+    		<element name="error" type="tns:Error" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+
+
+    <simpleType name="Status">
+    	<restriction base="string">
+    		<enumeration value="OK"></enumeration>
+    		<enumeration value="ERROR"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="DeploymentStatus">
+    	<sequence>
+    		<element name="status" type="tns:Status" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="errors" type="tns:Errors" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Error">
+    	<sequence>
+    		<element name="module" type="tns:Module"></element>
+    		<element name="type" type="tns:Type"></element>
+    	</sequence>
+    	<attribute name="description" type="string"></attribute>
+    	<attribute name="date" type="dateTime"></attribute>
+    </complexType>
+
+    <simpleType name="Module">
+    	<restriction base="string">
+    		<enumeration value="AspectGeneration"></enumeration>
+    		<enumeration value="AspectWeaver"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <simpleType name="Type">
+    	<restriction base="string">
+    		<enumeration value="SDS"></enumeration>
+    		<enumeration value="SAK"></enumeration>
+    		<enumeration value="internal"></enumeration>
+    		<enumeration value="Mapping"></enumeration>
+    		<enumeration value="AspectsSelection"></enumeration>
+    		<enumeration value="AspectJWeaver"></enumeration>
+    		<enumeration value="SpringAOPWeaver"></enumeration>
+    	</restriction>
+    </simpleType>
+
+</schema>

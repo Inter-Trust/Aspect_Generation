@@ -46,6 +46,7 @@
     <amqp.version>0.0.1-SNAPSHOT</amqp.version>
     <ak.version>0.0.1-SNAPSHOT</ak.version>
     <sds.version>0.0.1-SNAPSHOT</sds.version>
+    <errorHandling.version>0.0.1-SNAPSHOT</errorHandling.version>
   </properties>
 
 	<!-- remote repositories -->
@@ -99,6 +100,13 @@
 			<groupId>uma.caosd</groupId>
 			<artifactId>AMQP-ActiveMQ</artifactId>
 			<version>${amqp.version}</version>
+		</dependency>
+		
+		<!-- Error Handling -->  
+    <dependency>
+			<groupId>uma.caosd</groupId>
+			<artifactId>ErrorHandling</artifactId>
+			<version>${errorHandling.version}</version>
 		</dependency>
 		
   </dependencies>

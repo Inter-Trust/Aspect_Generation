@@ -18,6 +18,9 @@ import uma.caosd.AspectualKnowledge.Functionalities;
 import uma.caosd.AspectualKnowledge.Functionality;
 import uma.caosd.AspectualKnowledge.Pointcut;
 import uma.caosd.AspectualKnowledge.Pointcuts;
+import uma.caosd.errorHandling.DeploymentStatusSingleton;
+import uma.caosd.errors.Module;
+import uma.caosd.errors.Type;
 
 /**
  * Provides access to the aspectual knowledge.
@@ -40,8 +43,11 @@ public class SAKAnalysis {
 	 */
 	public Set<String> getPointcutsID() throws AspectualKnowledgeException {
 		Pointcuts pointcuts = sak.getPointcuts();
-		if (pointcuts == null) 
-			throw new AspectualKnowledgeException("There is not available pointcuts.");
+		if (pointcuts == null) {
+			String desc = "There is not available pointcuts.";
+			DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SAK);
+			throw new AspectualKnowledgeException(desc);
+		}
 		
 		HashSet<String> res = new HashSet<String>();
 		for (Pointcut p : pointcuts.getPointcut())
@@ -57,12 +63,18 @@ public class SAKAnalysis {
 	 */
 	public Pointcut getPointcut(String id) throws AspectualKnowledgeException {
 		Pointcuts pointcuts = sak.getPointcuts();
-		if (pointcuts == null) 
-			throw new AspectualKnowledgeException("There is not available pointcuts.");
+		if (pointcuts == null) {
+			String desc = "There is not available pointcuts.";
+			DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SAK);
+			throw new AspectualKnowledgeException(desc);
+		}
+			
 		for (Pointcut p : pointcuts.getPointcut())
 			if (p.getId().equals(id))
 				return p;
-		throw new AspectualKnowledgeException("There is not pointcut with ID '" + id + "'.");	
+		String desc = "There is not pointcut with ID '" + id + "'.";
+		DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SAK);
+		throw new AspectualKnowledgeException(desc);
 	}
 	
 	/**
@@ -72,8 +84,11 @@ public class SAKAnalysis {
 	 */
 	public Set<String> getAdvicesID() throws AspectualKnowledgeException {
 		Advices advices = sak.getAdvices();
-		if (advices == null) 
-			throw new AspectualKnowledgeException("There is not available advices.");
+		if (advices == null) {
+			String desc = "There is not available advices.";
+			DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SAK);
+			throw new AspectualKnowledgeException(desc);
+		}
 		
 		HashSet<String> res = new HashSet<String>();
 		for (AdviceCategory c : advices.getAdviceCategory())
@@ -90,13 +105,18 @@ public class SAKAnalysis {
 	 */
 	public Advice getAdvice(String id) throws AspectualKnowledgeException {
 		Advices advices = sak.getAdvices();
-		if (advices == null) 
-			throw new AspectualKnowledgeException("There is not available advices.");
+		if (advices == null) {
+			String desc = "There is not available advices.";
+			DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SAK);
+			throw new AspectualKnowledgeException(desc);
+		}
 		for (AdviceCategory c : advices.getAdviceCategory())
 			for (Advice a : c.adviceCategory())
 				if (a.getId().equals(id))
 					return a;
-		throw new AspectualKnowledgeException("There is not advice with ID '" + id + "'.");	
+		String desc = "There is not advice with ID '" + id + "'.";
+		DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SAK);
+		throw new AspectualKnowledgeException(desc);	
 	}
 	
 	
@@ -107,9 +127,11 @@ public class SAKAnalysis {
 	 */
 	public Set<String> getAdvisorsID() throws AspectualKnowledgeException {
 		Advisors advisors = sak.getAdvisors();
-		if (advisors == null) 
-			throw new AspectualKnowledgeException("There is not available advisors.");
-		
+		if (advisors == null) {
+			String desc = "There is not available advisors.";
+			DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SAK);
+			throw new AspectualKnowledgeException(desc);	
+		}		
 		HashSet<String> res = new HashSet<String>();
 		for (AdvisorCategory c : advisors.getAdvisorCategory())
 			for (Advisor a : c.getAdvisor())
@@ -125,13 +147,18 @@ public class SAKAnalysis {
 	 */
 	public Advisor getAdvisor(String id) throws AspectualKnowledgeException {
 		Advisors advisors = sak.getAdvisors();
-		if (advisors == null) 
-			throw new AspectualKnowledgeException("There is not available advisors.");
+		if (advisors == null) {
+			String desc = "There is not available advisors.";
+			DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SAK);
+			throw new AspectualKnowledgeException(desc);	
+		}
 		for (AdvisorCategory c : advisors.getAdvisorCategory())
 			for (Advisor a : c.getAdvisor())
 				if (a.getId().equals(id))
 				return a;
-		throw new AspectualKnowledgeException("There is not advisor with ID '" + id + "'.");	
+		String desc = "There is not advisor with ID '" + id + "'.";
+		DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SAK);
+		throw new AspectualKnowledgeException(desc);		
 	}
 	
 	/**

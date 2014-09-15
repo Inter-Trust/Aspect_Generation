@@ -77,6 +77,7 @@ public class StatusAspect {
 	 * @return			True if the advisor is enabled, false if it is disabled.
 	 */
 	public final static synchronized boolean isEnabled(String advisorID) {
+		//System.out.println("isEnabled: " + advisorID + ": " + dynamicRepository.getAdvisorRepository().containsAdvisor(advisorID));
 		return dynamicRepository.getAdvisorRepository().containsAdvisor(advisorID);
 	}
 	

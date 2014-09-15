@@ -28,10 +28,14 @@ public class GenericAspectGeneration {
 			sap = adaptationPlanGeneration.generateSecurityAdaptationPlan(analysis.getSecurityConfigurationToBeDeployed(), analysis.getSecurityConfigurationToBeUndeployed());
 			knowledge.updateSecurityConfigurations(adaptationPlanGeneration.getNewSecurityConfiguration());
 		} catch (AspectsSelectionException e) {
-			e.printStackTrace();
+			sap = null;
+			System.out.println("AspectGeneration>> Error! See Deployment Status notification.");
+			//e.printStackTrace();
 		} catch (MappingException e) {
-			e.printStackTrace();
-		}	
+			sap = null;
+			System.out.println("AspectGeneration>> Error! See Deployment Status notification.");
+			//e.printStackTrace();
+		}
 		return sap;
 	}
 	

@@ -22,7 +22,9 @@ public class SDSAspectGenerationAMQPConsumer extends ActiveMQConsumer {
 		System.out.println(getClass().getSimpleName() + ">> new security deployment specification (SDS) received.");
 		
 		Sds sds = XMLUtils.read(content, Sds.class);
+		//XMLUtils.writeTemp("SDS", sds, Sds.class);
 		aspectGeneration.updateSecurityDeploymentSpecification(sds);
+
 		
 		System.out.println(getClass().getSimpleName() + ">> security deployment specification (SDS) deployed.");	
 	}

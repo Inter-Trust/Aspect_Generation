@@ -14,6 +14,9 @@ import uma.caosd.SecurityDeploymentSpecification.SecurityFeature;
 import uma.caosd.SecurityDeploymentSpecification.Target;
 import uma.caosd.SecurityDeploymentSpecification.Undeploy;
 import uma.caosd.SecurityDeploymentSpecification.UndeploySecurityFeature;
+import uma.caosd.errorHandling.DeploymentStatusSingleton;
+import uma.caosd.errors.Module;
+import uma.caosd.errors.Type;
 
 /**
  * Analyses a Security Deployment Specification (SDS) file.
@@ -103,8 +106,12 @@ public class SDSAnalysis {
 	public String getTargetID(String securityConceptID) throws AnalysisException {
 		SecurityFeature sc = getSecurityConcept(securityConceptID);
 		Target target = sc.getTarget();
-		if (target == null)
-			throw new AnalysisException("There is not 'target' for security concept with ID '" + securityConceptID + "'.");
+		if (target == null) {
+			// Error -> description,
+			String desc = "There is not 'target' for security concept with ID '" + securityConceptID + "'.";
+			DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SDS);
+			throw new AnalysisException(desc);
+		}
 		return target.getId();
 	}
 
@@ -141,7 +148,9 @@ public class SDSAnalysis {
 		for (SecurityFeature sc : getSecurityConcepts())
 			if (sc.getId().equals(id))
 				return sc;
-		throw new AnalysisException("Security concept with ID '" + id + "' does not exist.");
+		String desc = "Security concept with ID '" + id + "' does not exist.";
+		DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SDS);
+		throw new AnalysisException(desc);
 	}
 	
 	/**

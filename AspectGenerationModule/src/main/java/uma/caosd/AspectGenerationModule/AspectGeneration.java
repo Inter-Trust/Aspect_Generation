@@ -18,6 +18,8 @@ import uma.caosd.AspectualKnowledge.AspectualKnowledge;
 import uma.caosd.SecurityDeploymentSpecification.Sds;
 import uma.caosd.amqp.activemq.ActiveMQProducer;
 import uma.caosd.amqp.utils.XMLUtils;
+import uma.caosd.errorHandling.DeploymentStatusSingleton;
+import uma.caosd.errors.DeploymentStatus;
 
 public class AspectGeneration implements AdaptationRequest, KnowledgeProvision {
 	private SecurityAspectualKnowledge knowledge;
@@ -28,6 +30,7 @@ public class AspectGeneration implements AdaptationRequest, KnowledgeProvision {
 	private SDSAspectGenerationAMQPConsumer SDSconsumerAMQP;
 	private SAKAspectGenerationAMQPConsumer SAKconsumerAMQP;
 	private AspectGenerationAMQPConfiguration configAG;
+	private ActiveMQProducer producerAMQPErrors;
 	
 	public AspectGeneration(AspectGenerationAMQPConfiguration configAG, File sakFile) {
 		System.out.println(getClass().getSimpleName() + ">> initializing...");
@@ -52,13 +55,27 @@ public class AspectGeneration implements AdaptationRequest, KnowledgeProvision {
 	}*/
 	
 	public void updateSecurityDeploymentSpecification(Sds sds) {
+		AdaptationPlan concreteSAP = null;
+		
 		AdaptationPlan genericSAP = genericAspectGeneration.adapts(sds);
-		AdaptationPlan concreteSAP = concreteAspectGeneration.adaptsAdaptationPlan(genericSAP);
-		this.adaptationPlan = concreteSAP;
+		if (genericSAP != null) {
+			concreteSAP = concreteAspectGeneration.adaptsAdaptationPlan(genericSAP);
+			this.adaptationPlan = concreteSAP;
+			System.out.println(getClass().getSimpleName() + ">>Security deployment specification (SDS) updated.");
+		}
 		
-		System.out.println(getClass().getSimpleName() + ">>Security deployment specification (SDS) updated.");
+		//DeploymentStatusSingleton.getStatus().completeStatus();
+		//sendToErrorsAMQP(DeploymentStatusSingleton.getStatus().getFinalStatus());
 		
-		sendToAMQP(concreteSAP);
+		DeploymentStatusSingleton.getStatus().completeStatus();
+		if (DeploymentStatusSingleton.getStatus().hasErrors()) {
+			sendToErrorsAMQP(DeploymentStatusSingleton.getStatus().getFinalStatus());
+			DeploymentStatusSingleton.getStatus().clear();
+		}
+		
+		if (concreteSAP != null) {
+			sendToAMQP(concreteSAP);	
+		}
 	}
 	
 	private void sendToAMQP(AdaptationPlan sap) {
@@ -70,6 +87,22 @@ public class AspectGeneration implements AdaptationRequest, KnowledgeProvision {
 			SAPproducerAMQP.send(content);
 			SAPproducerAMQP.cleanUp();
 			System.out.println(getClass().getSimpleName() + ">> new security adaptation plan (SAP) sent.");
+		} catch (JMSException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	private void sendToErrorsAMQP(DeploymentStatus errors) {
+		System.out.println(getClass().getSimpleName() + ">> sending deployment status with errors ...");
+		try {
+			producerAMQPErrors = new ActiveMQProducer(configAG.getErrorsBrokerURL(), configAG.getErrorsQueue());
+			//String content = SerializationUtils.objectToString(sap);
+			String content = XMLUtils.write(errors, DeploymentStatus.class);
+			producerAMQPErrors.send(content);
+			producerAMQPErrors.cleanUp();
+			System.out.println(getClass().getSimpleName() + ">> deployment status with errors sent.");
 		} catch (JMSException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

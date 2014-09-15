@@ -137,14 +137,15 @@
     </dependency>
   </dependencies>
   <properties>
-    <ak.version>0.0.1-SNAPSHOT</ak.version>
-    <amqp.version>0.0.1-SNAPSHOT</amqp.version>
-    <java.version>1.6</java.version>
-    <xmltexteditor.version>0.0.3</xmltexteditor.version>
     <sds.version>0.0.1-SNAPSHOT</sds.version>
-    <org.apache.commons.version>1.3.2</org.apache.commons.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>4.11</junit.version>
+    <java.version>1.6</java.version>
+    <ak.version>0.0.1-SNAPSHOT</ak.version>
+    <org.apache.commons.version>1.3.2</org.apache.commons.version>
+    <amqp.version>0.0.1-SNAPSHOT</amqp.version>
+    <xmltexteditor.version>0.0.3</xmltexteditor.version>
+    <errorHandling.version>0.0.1-SNAPSHOT</errorHandling.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
 
