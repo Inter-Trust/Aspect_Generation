@@ -11,6 +11,7 @@ import uma.caosd.SecurityDeploymentSpecification.Deploy;
 import uma.caosd.SecurityDeploymentSpecification.Functionality;
 import uma.caosd.SecurityDeploymentSpecification.Sds;
 import uma.caosd.SecurityDeploymentSpecification.SecurityFeature;
+import uma.caosd.SecurityDeploymentSpecification.SecurityParameter;
 import uma.caosd.SecurityDeploymentSpecification.Target;
 import uma.caosd.SecurityDeploymentSpecification.Undeploy;
 import uma.caosd.SecurityDeploymentSpecification.UndeploySecurityFeature;
@@ -89,6 +90,7 @@ public class SDSAnalysis {
 	 * @throws AnalysisException	There is not any security concept with the specified identifier.
 	 */
 	public Set<String> getFunctionalitiesID(String securityConceptID) throws AnalysisException {
+		//System.out.println("getFunctionalitiesID----------------------------------");
 		SecurityFeature sc = getSecurityConcept(securityConceptID);
 		HashSet<String> res = new HashSet<String>();
 		for (Functionality f : sc.getFunctionality())
@@ -104,6 +106,7 @@ public class SDSAnalysis {
 	 * 								there is not 'target' for the specified security concept.
 	 */
 	public String getTargetID(String securityConceptID) throws AnalysisException {
+		//System.out.println("getTargetID----------------------------------");
 		SecurityFeature sc = getSecurityConcept(securityConceptID);
 		Target target = sc.getTarget();
 		if (target == null) {
@@ -145,9 +148,13 @@ public class SDSAnalysis {
 	 * @throws AnalysisException 	There is not any security concept with the specified identifier.
 	 */
 	public SecurityFeature getSecurityConcept(String id) throws AnalysisException {
-		for (SecurityFeature sc : getSecurityConcepts())
+		//System.out.println("getSecurityConcept----------------------------------");
+		//System.out.println("getSecurityConcept: " + id);
+		for (SecurityFeature sc : getSecurityConcepts()) {
+			//System.out.println("getSecurityConcept sc: " + sc.getId());
 			if (sc.getId().equals(id))
 				return sc;
+		}
 		String desc = "Security concept with ID '" + id + "' does not exist.";
 		DeploymentStatusSingleton.getStatus().addError(desc, Module.ASPECT_GENERATION, Type.SDS);
 		throw new AnalysisException(desc);
@@ -160,6 +167,7 @@ public class SDSAnalysis {
 	 * @throws AnalysisException 	There is not any security concept with the specified identifier.
 	 */
 	public uma.caosd.SecurityDeploymentSpecification.Configuration getSecurityConceptConfiguration(String id) throws AnalysisException {
+		//System.out.println("getSecurityConceptConfiguration----------------------------------");
 		SecurityFeature sc = getSecurityConcept(id);
 		return sc.getConfiguration();
 	}

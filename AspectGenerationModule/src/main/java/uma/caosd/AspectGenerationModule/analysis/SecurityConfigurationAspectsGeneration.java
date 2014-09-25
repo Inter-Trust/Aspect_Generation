@@ -23,9 +23,10 @@ public class SecurityConfigurationAspectsGeneration {
 		this.selectionAlgorithm = selectionAlgorithm;
 	}
 	
-	public Configuration generateSecurityConfigurationToBeDeployed() throws AspectsSelectionException, MappingException {
+	public Configuration generateSecurityConfigurationToBeDeployed(SDSAnalysis sdsAnalysis) throws AspectsSelectionException, MappingException {
+		this.sdsAnalysis = sdsAnalysis;
 		Configuration sca = new Configuration();
-		Set<Advisor> advisors = getAdvisorsFromMapping(sdsAnalysis.getSecurityConceptToBeDeployed());
+		Set<Advisor> advisors = getAdvisorsFromMapping(sdsAnalysis.getSecurityConceptToBeDeployed(), true);
 		sca.getAdvisor().addAll(advisors);
 		Instance instance = new Instance();
 		instance.setId(sdsAnalysis.getInstanceID());
@@ -33,9 +34,10 @@ public class SecurityConfigurationAspectsGeneration {
 		return sca;	
 	}
 	
-	public Configuration generateSecurityConfigurationToBeUndeployed() throws AspectsSelectionException, MappingException {
+	public Configuration generateSecurityConfigurationToBeUndeployed(SDSAnalysis sdsAnalysis) throws AspectsSelectionException, MappingException {
+		this.sdsAnalysis = sdsAnalysis;
 		Configuration sca = new Configuration();
-		Set<Advisor> advisors =  getAdvisorsFromMapping(sdsAnalysis.getSecurityConceptToBeUnDeployed());
+		Set<Advisor> advisors =  getAdvisorsFromMapping(sdsAnalysis.getSecurityConceptToBeUnDeployed(), false);
 		sca.getAdvisor().addAll(advisors);
 		Instance instance = new Instance();
 		instance.setId(sdsAnalysis.getInstanceID());
@@ -43,14 +45,16 @@ public class SecurityConfigurationAspectsGeneration {
 		return sca;	
 	}
 	
-	private Set<Advisor> getAdvisorsFromMapping(Set<String> ids) throws MappingException, AspectsSelectionException {
+	private Set<Advisor> getAdvisorsFromMapping(Set<String> ids, boolean deploy) throws MappingException, AspectsSelectionException {
 		Set<Advisor> resAdvisors = new HashSet<Advisor>();
 		for (String scID : ids) {
 			Set<Advisor> candidateAdvisors = mapping.getAdvisors(scID);
 			Advisor advisor = selectionAlgorithm.selectAdvisor(candidateAdvisors);
-			AdvisorConfiguration config = mapping.getSecurityConceptConfiguration(scID);
-			if (config != null) {
-				advisor.setConfiguration(mapping.getSecurityConceptConfiguration(scID));	
+			if (deploy) {
+				AdvisorConfiguration config = mapping.getSecurityConceptConfiguration(scID);
+				if (config != null) {
+					advisor.setConfiguration(config);	
+				}
 			}
 			resAdvisors.add(advisor);
 		}

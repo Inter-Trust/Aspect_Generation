@@ -84,6 +84,7 @@ public class AspectGeneration implements AdaptationRequest, KnowledgeProvision {
 			SAPproducerAMQP = new ActiveMQProducer(configAG.getSAPBrokerURL(), configAG.getSAPQueue());
 			//String content = SerializationUtils.objectToString(sap);
 			String content = XMLUtils.write(sap, AdaptationPlan.class);
+			XMLUtils.writeTemp("sapAG", sap, AdaptationPlan.class);
 			SAPproducerAMQP.send(content);
 			SAPproducerAMQP.cleanUp();
 			System.out.println(getClass().getSimpleName() + ">> new security adaptation plan (SAP) sent.");
@@ -100,6 +101,7 @@ public class AspectGeneration implements AdaptationRequest, KnowledgeProvision {
 			producerAMQPErrors = new ActiveMQProducer(configAG.getErrorsBrokerURL(), configAG.getErrorsQueue());
 			//String content = SerializationUtils.objectToString(sap);
 			String content = XMLUtils.write(errors, DeploymentStatus.class);
+			XMLUtils.writeTemp("errorsStatus", errors, DeploymentStatus.class);
 			producerAMQPErrors.send(content);
 			producerAMQPErrors.cleanUp();
 			System.out.println(getClass().getSimpleName() + ">> deployment status with errors sent.");

@@ -10,13 +10,15 @@ import uma.caosd.amqp.utils.XMLUtils;
 
 public class SecurityAspectualKnowledge {
 	private AspectualKnowledge sak;
-	private SecurityConfigurations securityConfigurations;
+	//private SecurityConfigurations securityConfigurations;
+	private Configuration securityConfiguration;
 	private SAKAnalysis sakAnalysis;
 	
 	public SecurityAspectualKnowledge(File sakFile) {
 		sak = XMLUtils.read(sakFile, AspectualKnowledge.class);
 		sakAnalysis = new SAKAnalysis(sak);
-		securityConfigurations = new SecurityConfigurations();
+		securityConfiguration = new Configuration();
+		//securityConfigurations = new SecurityConfigurations();
 	}
 	
 	public SAKAnalysis getSAKAnalysis() {
@@ -26,15 +28,20 @@ public class SecurityAspectualKnowledge {
 	public AspectualKnowledge getAspectualKnowledge() {
 		return sak;
 	}
-	
+	/*
 	public SecurityConfigurations getSecurityConfigurations() {
 		return securityConfigurations;
+	}*/
+	
+	public Configuration getSecurityConfiguration() {
+		return securityConfiguration;
 	}
 	
 	public void updateSecurityConfigurations(Configuration currentConfiguration) {
-		Instance instance = currentConfiguration.getInstance();
-		String id = instance.getId();
-		securityConfigurations.updateConfiguration(id, currentConfiguration);
+		//Instance instance = currentConfiguration.getInstance();
+		//String id = instance.getId();
+		//securityConfigurations.updateConfiguration(id, currentConfiguration);
+		securityConfiguration = currentConfiguration;
 	}
 	
 	public void updateAspectualKnowledge(AspectualKnowledge sak) {

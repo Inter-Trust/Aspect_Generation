@@ -1,6 +1,10 @@
 package uma.caosd.AspectGenerationModule.genericAdaptationPlan;
 
+import java.io.File;
+
+import uma.caosd.AspectGenerationModule.utils.XMLViewer;
 import uma.caosd.AspectualKnowledge.Configuration;
+import uma.caosd.amqp.utils.XMLUtils;
 
 /**
  * Calculates the security configuration difference between the 
@@ -24,8 +28,11 @@ public class SecurityConfigurationDifference {
 		deployConfiguration = calculateDeployConfiguration(currentConfiguration, newConfigurationToBeDeployed);
 		undeployConfiguration = calculateUndeployConfiguration(currentConfiguration, newConfigurationToBeUndeployed);
 		remainConfiguration = calculateRemainConfiguration(currentConfiguration, newConfigurationToBeDeployed);
-		totalNewConfiguration = calculateTotalNewConfiguration(deployConfiguration, remainConfiguration);
+		totalNewConfiguration = calculateTotalNewConfiguration(deployConfiguration, currentConfiguration);
 		/*
+		File fcc = XMLUtils.writeTemp("currentConfiguration", currentConfiguration, Configuration.class);
+		new XMLViewer(fcc);
+		
 		File f = XMLUtils.writeTemp("deployConfiguration", deployConfiguration, Configuration.class);
 		new XMLViewer(f);
 		
@@ -90,11 +97,11 @@ public class SecurityConfigurationDifference {
 	 * @param newConfigurationToBeDeployed
 	 * @return
 	 */
-	private Configuration calculateTotalNewConfiguration(Configuration newConfigurationToBeDeployed, Configuration remainConfiguration) {
+	private Configuration calculateTotalNewConfiguration(Configuration newConfigurationToBeDeployed, Configuration currentConfiguration) {
 		Configuration resConfiguration = new Configuration();
 		resConfiguration.setInstance(newConfigurationToBeDeployed.getInstance());
 		resConfiguration.getAdvisor().addAll(newConfigurationToBeDeployed.getAdvisor());
-		resConfiguration.getAdvisor().addAll(remainConfiguration.getAdvisor());
+		resConfiguration.getAdvisor().addAll(currentConfiguration.getAdvisor());
 		return resConfiguration;
 	}
 	

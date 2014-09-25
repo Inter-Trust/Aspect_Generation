@@ -49,14 +49,14 @@ public class Analysis {
 		}
 		AspectsSelectionAlgorithm selectionAlgorithm = new SelectionAlgorithm1();
 		SecurityConfigurationAspectsGeneration configGeneration = new SecurityConfigurationAspectsGeneration(sdsAnalysis, mapping, selectionAlgorithm);
-		securityConfigurationToBeDeployed = configGeneration.generateSecurityConfigurationToBeDeployed();
-		securityConfigurationToBeUndeployed = configGeneration.generateSecurityConfigurationToBeUndeployed();
+		securityConfigurationToBeDeployed = configGeneration.generateSecurityConfigurationToBeDeployed(sdsAnalysis);
+		securityConfigurationToBeUndeployed = configGeneration.generateSecurityConfigurationToBeUndeployed(sdsAnalysis);
 		
 		/** PRUEBAS **/
 		/*File f = XMLUtils.writeTemp("securityConfigurationToBeDeployed", securityConfigurationToBeDeployed, Configuration.class);
-		new XMLViewer(f);*/
-		/*
-		File f2 = XMLFile.writeTemp("securityConfigurationToBeUndeployed", securityConfigurationToBeUndeployed, Configuration.class);
+		new XMLViewer(f);
+		
+		File f2 = XMLUtils.writeTemp("securityConfigurationToBeUndeployed", securityConfigurationToBeUndeployed, Configuration.class);
 		new XMLViewer(f2);*/
 	}
 

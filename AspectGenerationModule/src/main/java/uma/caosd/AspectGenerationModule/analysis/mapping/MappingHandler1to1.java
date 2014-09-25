@@ -42,6 +42,7 @@ public class MappingHandler1to1 implements MappingSecurityConceptsAspects {
 	}
 	
 	public void updateMapping(SDSAnalysis sdsAnalysis, SAKAnalysis sak) throws MappingException {
+		this.sdsAnalysis = sdsAnalysis;
 		try {
 			Set<String> securityConcepts = sdsAnalysis.getSecurityConceptToBeDeployed();
 			for (String scID : securityConcepts) {
@@ -78,6 +79,7 @@ public class MappingHandler1to1 implements MappingSecurityConceptsAspects {
 		try {
 			uma.caosd.SecurityDeploymentSpecification.Configuration configSDS = sdsAnalysis.getSecurityConceptConfiguration(securityConceptID);
 			if (configSDS != null) {
+				//System.out.println("configSDS: " + configSDS);
 				config = new AdvisorConfiguration();
 				// Be careful!! Description is an object in SDS and a String in the Configuration.
 				if (configSDS.getSecurityDescription() != null) {
@@ -97,8 +99,8 @@ public class MappingHandler1to1 implements MappingSecurityConceptsAspects {
 				}
 			}
 		} catch (AnalysisException e) {
-			//throw new MappingException("There is not security concept with ID '" + securityConceptID + "'.");
 			config = null;
+			throw new MappingException("There is not security concept with ID '" + securityConceptID + "'.");
 		}
 		return config;
 	}
