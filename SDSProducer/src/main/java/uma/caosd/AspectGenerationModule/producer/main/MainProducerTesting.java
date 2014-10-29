@@ -10,7 +10,7 @@ import uma.caosd.amqp.utils.XMLUtils;
 
 public class MainProducerTesting {
 	public static final String ASPECT_GENERATION_AMQP_PROPERTIES_FILENAME = "files" + File.separator + "AMQPconfigProducerSDS.properties";
-	public static final String SDS_FILE_EXAMPLE = "files" + File.separator + "SDSexample-UMUversion.xml";
+	public static final String SDS_FILE_EXAMPLE = "files" + File.separator + "SDSexampleSpringAOP.xml";
 	
 	public static void main(String[] args) {
 		String propertiesFilename = ASPECT_GENERATION_AMQP_PROPERTIES_FILENAME;

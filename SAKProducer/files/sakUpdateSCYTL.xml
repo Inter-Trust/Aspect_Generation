@@ -6,7 +6,7 @@
   </ak:pointcuts>
   <ak:advices>
     <ak:adviceCategory id="Reject">
-      <ak:advice classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy-Integration\files\VoteRejection.jar" id="VoteRejectionAdvice">
+      <ak:advice classname="com.scytl.pnyx.govlab.aspect.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy-Integration\files\VoteRejectionSCYTL.jar" id="VoteRejectionAdvice">
         <ak:functionalities>
           <ak:functionality id="voterejection"/>
         </ak:functionalities>

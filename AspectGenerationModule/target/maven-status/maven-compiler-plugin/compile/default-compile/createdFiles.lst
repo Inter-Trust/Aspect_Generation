@@ -3,8 +3,10 @@ uma\caosd\AspectGenerationModule\exceptions\AspectsSelectionException.class
 uma\caosd\AspectGenerationModule\analysis\Analysis.class
 uma\caosd\AspectGenerationModule\interfaces\AdaptationRequest.class
 uma\caosd\AspectGenerationModule\genericAdaptationPlan\SecurityConfigurationDifference.class
+uma\caosd\AspectGenerationModule\amqp\SAKAspectGenerationThread.class
 uma\caosd\AspectGenerationModule\concreteAG\AdvisorInformation.class
 uma\caosd\AspectGenerationModule\analysis\SDSAnalysis.class
+uma\caosd\AspectGenerationModule\main\QueueThread.class
 uma\caosd\AspectGenerationModule\concreteAG\ConcreteSecurityAdaptationPlanGeneration.class
 uma\caosd\AspectGenerationModule\utils\XMLViewer.class
 uma\caosd\AspectGenerationModule\analysis\SecurityConfigurationAspectsGeneration.class
@@ -22,6 +24,7 @@ uma\caosd\AspectGenerationModule\amqp\SAKAspectGenerationAMQPConsumer.class
 uma\caosd\AspectGenerationModule\genericAdaptationPlan\GenericSecurityAdaptationPlanGeneration.class
 uma\caosd\AspectGenerationModule\GenericAspectGeneration.class
 uma\caosd\AspectGenerationModule\exceptions\AspectualKnowledgeException.class
+uma\caosd\AspectGenerationModule\amqp\SDSAspectGenerationThread.class
 uma\caosd\AspectGenerationModule\analysis\selectionAlgorithm\SelectionAlgorithm1.class
 uma\caosd\AspectGenerationModule\gui\AspectGenerationView.class
 uma\caosd\AspectGenerationModule\ConcreteAspectGeneration.class

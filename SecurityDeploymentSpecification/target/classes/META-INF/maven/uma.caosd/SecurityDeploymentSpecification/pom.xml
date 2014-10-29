@@ -10,6 +10,15 @@
   <name>SecurityDeploymentSpecification</name>
   <url>http://maven.apache.org</url>
 
+<licenses>
+    <license>
+       <name>LGPLv2.1</name>
+       <url>https://www.gnu.org/licenses/lgpl-2.1.html</url>
+       <distribution>repo</distribution>
+       <comments>An open source license</comments>
+    </license>
+	</licenses>
+	
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>4.11</junit.version>

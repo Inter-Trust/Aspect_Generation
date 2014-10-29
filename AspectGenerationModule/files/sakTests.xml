@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ak:aspectualKnowledge xmlns:ak="http://inter-trust.eu/schema/AspectualKnowledge/ak" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/AspectualKnowledge/ak AspectualKnowledge-schema.xsd ">
+  <ak:pointcuts>
+  	<ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="pini"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p1"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p2"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p3"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p4"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p5"/>
+    
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p6"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p7"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p8"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p9"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p10"/>
+    
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p11"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p12"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p13"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p14"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p15"/>
+    
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p16"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p17"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p18"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p19"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.Ballot.vote(Vote)) &amp;&amp; args(vote)" id="p20"/>
+    
+  </ak:pointcuts>
+  <ak:advices>
+    <ak:adviceCategory id="aa1">
+     <ak:advice id="Aini">
+        <ak:functionalities>
+          <ak:functionality id="Fini"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a1">
+        <ak:functionalities>
+          <ak:functionality id="f1"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a2">
+        <ak:functionalities>
+          <ak:functionality id="f2"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a3">
+        <ak:functionalities>
+          <ak:functionality id="f3"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+        <ak:adviceCategory id="aa2">
+      <ak:advice id="a4">
+        <ak:functionalities>
+          <ak:functionality id="f4"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a5">
+        <ak:functionalities>
+          <ak:functionality id="f5"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a6">
+        <ak:functionalities>
+          <ak:functionality id="f6"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+    <ak:adviceCategory id="aa3">
+      <ak:advice id="a7">
+        <ak:functionalities>
+          <ak:functionality id="f7"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a8">
+        <ak:functionalities>
+          <ak:functionality id="f8"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a9">
+        <ak:functionalities>
+          <ak:functionality id="f9"/>
+        </ak:functionalities>
+      </ak:advice>
+       <ak:advice id="a10">
+        <ak:functionalities>
+          <ak:functionality id="f10"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+    <ak:adviceCategory id="aa4">
+      <ak:advice id="a11">
+        <ak:functionalities>
+          <ak:functionality id="f11"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a12">
+        <ak:functionalities>
+          <ak:functionality id="f12"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a13">
+        <ak:functionalities>
+          <ak:functionality id="f13"/>
+        </ak:functionalities>
+      </ak:advice>
+       <ak:advice id="a14">
+        <ak:functionalities>
+          <ak:functionality id="f14"/>
+        </ak:functionalities>
+      </ak:advice>
+             <ak:advice id="a15">
+        <ak:functionalities>
+          <ak:functionality id="f15"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+        <ak:adviceCategory id="aa5">
+      <ak:advice id="a16">
+        <ak:functionalities>
+          <ak:functionality id="f16"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a17">
+        <ak:functionalities>
+          <ak:functionality id="f17"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a18">
+        <ak:functionalities>
+          <ak:functionality id="f18"/>
+        </ak:functionalities>
+      </ak:advice>
+       <ak:advice id="a19">
+        <ak:functionalities>
+          <ak:functionality id="f19"/>
+        </ak:functionalities>
+      </ak:advice>
+             <ak:advice id="a20">
+        <ak:functionalities>
+          <ak:functionality id="f20"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+  </ak:advices>
+  <ak:advisors>
+    <ak:advisorCategory id="aa1">
+    	<ak:advisor advice-ref="Aini" id="ini" pointcut-ref="pini" type="AspectJ"/>
+      <ak:advisor advice-ref="a1" id="1" pointcut-ref="p1" type="AspectJ"/>
+      <ak:advisor advice-ref="a2" id="2" pointcut-ref="p2" type="AspectJ"/>
+      <ak:advisor advice-ref="a3" id="3" pointcut-ref="p3" type="AspectJ"/>
+    </ak:advisorCategory>
+    <ak:advisorCategory id="aa2">
+      <ak:advisor advice-ref="a4" id="4" pointcut-ref="p4" type="AspectJ"/>
+      <ak:advisor advice-ref="a5" id="5" pointcut-ref="p5" type="AspectJ"/>
+      <ak:advisor advice-ref="a6" id="6" pointcut-ref="p6" type="AspectJ"/>
+    </ak:advisorCategory>
+    <ak:advisorCategory id="aa3">
+      <ak:advisor advice-ref="a7" id="7" pointcut-ref="p7" type="AspectJ"/>
+      <ak:advisor advice-ref="a8" id="8" pointcut-ref="p8" type="AspectJ"/>
+      <ak:advisor advice-ref="a9" id="9" pointcut-ref="p9" type="AspectJ"/>
+      <ak:advisor advice-ref="a10" id="10" pointcut-ref="p10" type="AspectJ"/>
+    </ak:advisorCategory>
+    <ak:advisorCategory id="aa4">
+      <ak:advisor advice-ref="a11" id="11" pointcut-ref="p11" type="AspectJ"/>
+      <ak:advisor advice-ref="a12" id="12" pointcut-ref="p12" type="AspectJ"/>
+      <ak:advisor advice-ref="a13" id="13" pointcut-ref="p13" type="AspectJ"/>
+      <ak:advisor advice-ref="a14" id="14" pointcut-ref="p14" type="AspectJ"/>
+      <ak:advisor advice-ref="a15" id="15" pointcut-ref="p15" type="AspectJ"/>
+    </ak:advisorCategory>
+    <ak:advisorCategory id="aa5">
+      <ak:advisor advice-ref="a16" id="16" pointcut-ref="p16" type="AspectJ"/>
+      <ak:advisor advice-ref="a17" id="17" pointcut-ref="p17" type="AspectJ"/>
+      <ak:advisor advice-ref="a18" id="18" pointcut-ref="p18" type="AspectJ"/>
+      <ak:advisor advice-ref="a19" id="19" pointcut-ref="p19" type="AspectJ"/>
+      <ak:advisor advice-ref="a20" id="20" pointcut-ref="p20" type="AspectJ"/>
+    </ak:advisorCategory>
+  </ak:advisors>
+</ak:aspectualKnowledge>

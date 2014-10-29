@@ -3,7 +3,7 @@
   <sds:deploy>
   </sds:deploy>
   <sds:undeploy>
-   	<sds:undeploySecurityFeature id="5"/>
+   	<sds:undeploySecurityFeature id="2"/>
   </sds:undeploy>
   <sds:instance id="user001"/>
 </sds:sds>

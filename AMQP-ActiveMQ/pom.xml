@@ -10,8 +10,8 @@
 
 	<licenses>
     <license>
-       <name>GPLv2</name>
-       <url>http://www.gnu.org/licenses/gpl-2.0.html</url>
+       <name>LGPLv2.1</name>
+       <url>https://www.gnu.org/licenses/lgpl-2.1.html</url>
        <distribution>repo</distribution>
        <comments>An open source license</comments>
     </license>
@@ -53,6 +53,14 @@
       <scope>test</scope>
     </dependency>
 		
+		<!-- ActiveMQ -->
+		<!-- 
+		<dependency>
+  		<groupId>org.apache.activemq</groupId>
+  		<artifactId>activemq-core</artifactId>
+  		<version>${activemq.version}</version>
+		</dependency>
+-->
 		<!-- ActiveMQ -->
 		<dependency>
   		<groupId>org.apache.activemq</groupId>

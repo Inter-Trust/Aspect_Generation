@@ -8,7 +8,7 @@ import uma.caosd.AspectGenerationModule.amqp.AspectGenerationAMQPConfiguration;
 
 public class MainTesting {
 	public static final String ASPECT_GENERATION_AMQP_PROPERTIES_FILENAME = "files" + File.separator + "AMQPconfigAG.properties";
-	public static final String INITIAL_ASPECTUAL_KNOWLEDGE_FILENAME = "files" + File.separator + "sak.xml";
+	public static final String INITIAL_ASPECTUAL_KNOWLEDGE_FILENAME = "files" + File.separator + "sakTests.xml";
 
 	public static void main(String[] args) {
 		String propertiesFilename = ASPECT_GENERATION_AMQP_PROPERTIES_FILENAME;

@@ -18,11 +18,13 @@ E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\genericAdaptationPlan\SecurityConfigurationSelection.java
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\securityAspectualKnowledge\SAKUpdate.java
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\genericAdaptationPlan\GenericSecurityAdaptationPlanGeneration.java
+E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\amqp\SAKAspectGenerationThread.java
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\utils\XMLViewer.java
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\analysis\mapping\MappingSecurityConceptsAspects.java
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\ConcreteAspectGeneration.java
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\concreteAG\AspectJAdvisorInformation.java
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\genericAdaptationPlan\AdaptationPlanGeneration.java
+E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\amqp\SDSAspectGenerationThread.java
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\analysis\selectionAlgorithm\SelectionAlgorithm1.java
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\securityAspectualKnowledge\SecurityConfigurations.java
 E:\workspaces\Java\workspace_INTERTRUST\AspectGenerationModule\src\main\java\uma\caosd\AspectGenerationModule\main\QueueThread.java

@@ -4,10 +4,12 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 import javax.xml.bind.JAXBContext;
@@ -75,7 +77,7 @@ public class XMLUtils {
 	 * @param typeParameterClass	Class of the object with the content.
 	 * @return						File.
 	 */
-	private static <T> File write(File file, T content, Class<T> typeParameterClass) {
+	public static <T> File write(File file, T content, Class<T> typeParameterClass) {
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(typeParameterClass);
 			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
@@ -169,5 +171,15 @@ public class XMLUtils {
 	    }
 	    reader.close();
 	    return stringBuilder.toString();
+	}
+	
+	public static void writeToFile(File file, String content) {
+		try {
+			PrintWriter out = new PrintWriter(file);
+			out.println(content);
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }

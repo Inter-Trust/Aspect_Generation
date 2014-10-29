@@ -2,7 +2,17 @@ uma\caosd\errorHandling\xmlClasses\ObjectFactory.class
 uma\caosd\errorHandling\xmlClasses\Alarms.class
 uma\caosd\errorHandling\xmlClasses\Params.class
 uma\caosd\errorHandling\xmlClasses\Elements.class
+uma\caosd\errors\DeploymentStatus.class
+uma\caosd\errors\Status.class
+uma\caosd\errorHandling\DeploymentStatusSingleton.class
 uma\caosd\errorHandling\xmlClasses\Alarm.class
+uma\caosd\errors\ObjectFactory.class
 uma\caosd\errorHandling\xmlClasses\package-info.class
+uma\caosd\errorHandling\AspectErrors.class
 uma\caosd\errorHandling\xmlClasses\Element.class
+uma\caosd\errors\Module.class
+uma\caosd\errors\Error.class
+uma\caosd\errors\Type.class
 uma\caosd\errorHandling\xmlClasses\Param.class
+uma\caosd\errors\package-info.class
+uma\caosd\errors\Errors.class

@@ -7,12 +7,7 @@
         <sds:functionality id="Authentication#certificate"/>
         <sds:configuration>
           <sds:securityParameters>
-            <sds:parameter name="CU">UMU</sds:parameter>
-            <sds:parameter name="key-type">X509</sds:parameter>
-            <sds:parameter name="hashing">sha1</sds:parameter>
-            <sds:parameter name="fomat">etsi</sds:parameter>
-            <sds:parameter name="key">CN=VEHICLE_1, OU=ITS_VEHICLES, O=DIRECCION, C=ES</sds:parameter>
-            <sds:parameter name="algorithm">DSA</sds:parameter>
+            <sds:parameter name="CU">UMA</sds:parameter>
           </sds:securityParameters>
         </sds:configuration>
       </sds:securityFeature>

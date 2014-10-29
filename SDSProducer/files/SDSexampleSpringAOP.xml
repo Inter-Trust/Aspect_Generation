@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sds:sds xmlns:sds="http://inter-trust.eu/schema/interpreter/sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/interpreter/sds SDS.xsd ">
   <sds:deploy>
-    <sds:category id="Authentication">
-      <sds:securityFeature id="2" type="Authentication">
-        <sds:target id="authenticationPoints"/>
-        <sds:functionality id="Authentication#userPass"/>
+    <sds:category id="VR">
+      <sds:securityFeature id="10" type="VR">
+        <sds:target id="Vote"/>
+        <sds:functionality id="voterejection"/>
         <sds:configuration>
-          <sds:securityParameters>
-            <sds:parameter name="password">pass</sds:parameter>
-          </sds:securityParameters>
         </sds:configuration>
       </sds:securityFeature>
     </sds:category>
   </sds:deploy>
   <sds:undeploy>
   </sds:undeploy>
-  <sds:instance id="user002"/>
+  <sds:instance id="user001"/>
 </sds:sds>

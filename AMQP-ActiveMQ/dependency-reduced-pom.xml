@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>uma.caosd</groupId>
-  <artifactId>AspectGenerationModule</artifactId>
-  <name>AspectGenerationModule</name>
+  <artifactId>AMQP-ActiveMQ</artifactId>
+  <name>AMQP-ActiveMQ</name>
   <version>0.0.1-SNAPSHOT</version>
   <url>http://maven.apache.org</url>
   <developers>
@@ -50,12 +50,6 @@
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
-          <archive>
-            <addMavenDescriptor>false</addMavenDescriptor>
-            <manifest>
-              <mainClass>uma.caosd.AspectGenerationModule.main.Main</mainClass>
-            </manifest>
-          </archive>
         </configuration>
       </plugin>
       <plugin>
@@ -64,9 +58,6 @@
         <configuration>
           <archive>
             <addMavenDescriptor>false</addMavenDescriptor>
-            <manifest>
-              <mainClass>uma.caosd.AspectGenerationModule.main.Main</mainClass>
-            </manifest>
           </archive>
         </configuration>
       </plugin>
@@ -83,19 +74,8 @@
               <artifactSet>
                 <excludes>
                   <exclude>junit:junit</exclude>
-                  <exclude>org.aspectj:*</exclude>
-                  <exclude>org.springframework:*</exclude>
-                  <exclude>cglib:cglib</exclude>
-                  <exclude>asm:asm</exclude>
-                  <exclude>aopalliance:aopalliance</exclude>
-                  <exclude>org.jdom:jdom2</exclude>
                   <exclude>org.apache.activemq:activemq-all</exclude>
                   <exclude>org.apache.directory.studio:org.apache.commons.codec</exclude>
-                  <exclude>commons-codec:commons-codec</exclude>
-                  <exclude>commons-logging:commons-logging</exclude>
-                  <exclude>net.boplicity:xml-text-editor</exclude>
-                  <exclude>org.apache.commons:commons-io</exclude>
-                  <exclude>commons-io:commons-io</exclude>
                 </excludes>
               </artifactSet>
             </configuration>
@@ -104,12 +84,6 @@
       </plugin>
     </plugins>
   </build>
-  <repositories>
-    <repository>
-      <id>sonatype-forge</id>
-      <url>https://repository.sonatype.org/content/groups/forge/</url>
-    </repository>
-  </repositories>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -124,28 +98,17 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>net.boplicity</groupId>
-      <artifactId>xml-text-editor</artifactId>
-      <version>0.0.3</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>1.3.2</version>
+      <groupId>org.apache.directory.studio</groupId>
+      <artifactId>org.apache.commons.codec</artifactId>
+      <version>1.8</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
   <properties>
-    <sds.version>0.0.1-SNAPSHOT</sds.version>
-    <junit.version>4.11</junit.version>
+    <activemq.version>5.7.0</activemq.version>
     <java.version>1.6</java.version>
-    <ak.version>0.0.1-SNAPSHOT</ak.version>
-    <org.apache.commons.version>1.3.2</org.apache.commons.version>
-    <amqp.version>0.0.1-SNAPSHOT</amqp.version>
-    <xmltexteditor.version>0.0.3</xmltexteditor.version>
-    <errorHandling.version>0.0.1-SNAPSHOT</errorHandling.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>4.11</junit.version>
   </properties>
 </project>
 

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ak:aspectualKnowledge xmlns:ak="http://inter-trust.eu/schema/AspectualKnowledge/ak" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/AspectualKnowledge/ak AspectualKnowledge-schema.xsd ">
+  <ak:pointcuts>
+  	<ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="pini"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p1"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p2"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p3"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p4"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p5"/>
+    
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p6"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p7"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p8"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p9"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p10"/>
+    
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p11"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p12"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p13"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p14"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p15"/>
+    
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p16"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p17"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p18"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p19"/>
+    <ak:pointcut expression="execution(public void uma.caosd.evoting.impl.SimpleBallot.vote(..))" id="p20"/>
+    
+  </ak:pointcuts>
+  <ak:advices>
+    <ak:adviceCategory id="aa1">
+     <ak:advice id="Aini" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="Fini"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a1" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f1"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a2" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f2"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a3" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f3"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+        <ak:adviceCategory id="aa2">
+      <ak:advice id="a4" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f4"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a5" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f5"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a6" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f6"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+    <ak:adviceCategory id="aa3">
+      <ak:advice id="a7" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f7"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a8" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f8"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a9" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f9"/>
+        </ak:functionalities>
+      </ak:advice>
+       <ak:advice id="a10" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f10"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+    <ak:adviceCategory id="aa4">
+      <ak:advice id="a11" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f11"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a12" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f12"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a13" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f13"/>
+        </ak:functionalities>
+      </ak:advice>
+       <ak:advice id="a14" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f14"/>
+        </ak:functionalities>
+      </ak:advice>
+             <ak:advice id="a15" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f15"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+        <ak:adviceCategory id="aa5">
+      <ak:advice id="a16" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f16"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a17" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f17"/>
+        </ak:functionalities>
+      </ak:advice>
+      <ak:advice id="a18" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f18"/>
+        </ak:functionalities>
+      </ak:advice>
+       <ak:advice id="a19" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f19"/>
+        </ak:functionalities>
+      </ak:advice>
+             <ak:advice id="a20" classname="uma.caosd.evoting.server.aspects.VoteRejection" filepath="E:\workspaces\Java\workspace_INTERTRUST\EVoting-CaseStudy\target\VoteRejection.jar">
+        <ak:functionalities>
+          <ak:functionality id="f20"/>
+        </ak:functionalities>
+      </ak:advice>
+    </ak:adviceCategory>
+  </ak:advices>
+  <ak:advisors>
+    <ak:advisorCategory id="aa1">
+    	<ak:advisor advice-ref="Aini" id="ini" pointcut-ref="pini" type="SpringAOP"/>
+      <ak:advisor advice-ref="a1" id="1" pointcut-ref="p1" type="SpringAOP"/>
+      <ak:advisor advice-ref="a2" id="2" pointcut-ref="p2" type="SpringAOP"/>
+      <ak:advisor advice-ref="a3" id="3" pointcut-ref="p3" type="SpringAOP"/>
+    </ak:advisorCategory>
+    <ak:advisorCategory id="aa2">
+      <ak:advisor advice-ref="a4" id="4" pointcut-ref="p4" type="SpringAOP"/>
+      <ak:advisor advice-ref="a5" id="5" pointcut-ref="p5" type="SpringAOP"/>
+      <ak:advisor advice-ref="a6" id="6" pointcut-ref="p6" type="SpringAOP"/>
+    </ak:advisorCategory>
+    <ak:advisorCategory id="aa3">
+      <ak:advisor advice-ref="a7" id="7" pointcut-ref="p7" type="SpringAOP"/>
+      <ak:advisor advice-ref="a8" id="8" pointcut-ref="p8" type="SpringAOP"/>
+      <ak:advisor advice-ref="a9" id="9" pointcut-ref="p9" type="SpringAOP"/>
+      <ak:advisor advice-ref="a10" id="10" pointcut-ref="p10" type="SpringAOP"/>
+    </ak:advisorCategory>
+    <ak:advisorCategory id="aa4">
+      <ak:advisor advice-ref="a11" id="11" pointcut-ref="p11" type="SpringAOP"/>
+      <ak:advisor advice-ref="a12" id="12" pointcut-ref="p12" type="SpringAOP"/>
+      <ak:advisor advice-ref="a13" id="13" pointcut-ref="p13" type="SpringAOP"/>
+      <ak:advisor advice-ref="a14" id="14" pointcut-ref="p14" type="SpringAOP"/>
+      <ak:advisor advice-ref="a15" id="15" pointcut-ref="p15" type="SpringAOP"/>
+    </ak:advisorCategory>
+    <ak:advisorCategory id="aa5">
+      <ak:advisor advice-ref="a16" id="16" pointcut-ref="p16" type="SpringAOP"/>
+      <ak:advisor advice-ref="a17" id="17" pointcut-ref="p17" type="SpringAOP"/>
+      <ak:advisor advice-ref="a18" id="18" pointcut-ref="p18" type="SpringAOP"/>
+      <ak:advisor advice-ref="a19" id="19" pointcut-ref="p19" type="SpringAOP"/>
+      <ak:advisor advice-ref="a20" id="20" pointcut-ref="p20" type="SpringAOP"/>
+    </ak:advisorCategory>
+  </ak:advisors>
+</ak:aspectualKnowledge>

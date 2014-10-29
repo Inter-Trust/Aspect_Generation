@@ -10,7 +10,7 @@ import uma.caosd.amqp.utils.XMLUtils;
 
 public class MainProducerTesting {
 	public static final String ASPECT_GENERATION_AMQP_PROPERTIES_FILENAME = "files" + File.separator + "AMQPconfigProducerSAK.properties";
-	public static final String SAK_FILE_EXAMPLE = "files" + File.separator + "sakUpdate.xml";
+	public static final String SAK_FILE_EXAMPLE = "files" + File.separator + "sakUpdateSCYTL.xml";
 	
 	public static void main(String[] args) {
 		String propertiesFilename = ASPECT_GENERATION_AMQP_PROPERTIES_FILENAME;

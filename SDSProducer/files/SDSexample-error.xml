@@ -2,18 +2,18 @@
 <sds:sds xmlns:sds="http://inter-trust.eu/schema/interpreter/sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/interpreter/sds SDS.xsd ">
   <sds:deploy>
     <sds:category id="Authentication">
-      <sds:securityFeature id="2" type="Authentication">
-        <sds:target id="authenticationPoints"/>
-        <sds:functionality id="Authentication#userPass"/>
+      <sds:securityFeature id="5" type="Authentication">
+        <sds:target id="authenticationPoints2"/>
+        <sds:functionality id="Authentication#certificate2"/>
         <sds:configuration>
           <sds:securityParameters>
-            <sds:parameter name="password">pass</sds:parameter>
+            <sds:parameter name="CU">UMA</sds:parameter>
           </sds:securityParameters>
         </sds:configuration>
       </sds:securityFeature>
     </sds:category>
   </sds:deploy>
   <sds:undeploy>
+  <sds:undeploySecurityFeature id="1"/>
   </sds:undeploy>
-  <sds:instance id="user002"/>
 </sds:sds>

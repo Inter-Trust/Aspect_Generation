@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sds:sds xmlns:sds="http://inter-trust.eu/schema/interpreter/sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://inter-trust.eu/schema/interpreter/sds SDS.xsd ">
   <sds:deploy>
+   <sds:category id="Authentication2">
+      <sds:securityFeature id="2" type="Authentication">
+        <sds:target id="authenticationPoints"/>
+        <sds:functionality id="Authentication#example"/>
+        <sds:configuration>
+          <sds:securityParameters>
+            <sds:parameter name="protected-item">StationId</sds:parameter>
+            <sds:parameter name="pseudonym">cert-field:stationId</sds:parameter>
+          </sds:securityParameters>
+        </sds:configuration>
+      </sds:securityFeature>
+    </sds:category>
+    
     <sds:category id="Authentication">
       <sds:securityFeature id="1" type="Authentication">
         <sds:target id="authenticationPoints"/>
@@ -11,7 +24,7 @@
             <sds:parameter name="key-type">X509</sds:parameter>
             <sds:parameter name="hashing">sha1</sds:parameter>
             <sds:parameter name="fomat">etsi</sds:parameter>
-            <sds:parameter name="key">CN=VEHICLE_1, OU=ITS_VEHICLES, O=DIRECCION, C=ES</sds:parameter>
+            <sds:parameter name="key">Pseudonym</sds:parameter>
             <sds:parameter name="algorithm">DSA</sds:parameter>
           </sds:securityParameters>
         </sds:configuration>
